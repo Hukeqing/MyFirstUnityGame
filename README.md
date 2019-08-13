@@ -36,7 +36,6 @@
 [完成的源码](https://github.com/Hukeqing/MyFirstUnityGame/tree/a3c3ae99fe8544cfbfcc7f3b124829c320dd09de)
 
 ### **8 游戏优化2**
-[B站视频]
-截至8.14的0:32还在审核中
+[B站视频](https://www.bilibili.com/video/av63607070)
 
 [完成的源码](https://github.com/Hukeqing/MyFirstUnityGame/tree/ec6d38e23f0319752a422f5be3f5dd270235270e)
