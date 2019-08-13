@@ -18,35 +18,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(transform.forward * MoveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(-transform.forward * MoveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(-transform.right * MoveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(transform.right * MoveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            transform.Translate(-transform.up * MoveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            transform.Translate(transform.up * MoveSpeed * Time.deltaTime);
-        }
-
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Jump"), Input.GetAxis("Vertical")) * MoveSpeed * Time.deltaTime);
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newShell = Instantiate(Shell, FirePoint.position, FirePoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(transform.forward * Force);
+            newShell.GetComponent<Rigidbody>().AddForce(FirePoint.forward * Force);
             Destroy(newShell, 3);
         }
         leaveNum.text = "剩余方块：" + cnt.ToString();
