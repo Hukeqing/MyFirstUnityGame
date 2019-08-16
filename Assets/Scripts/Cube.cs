@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    public Player player;
+
     void Update()
     {
-        if (transform.position.y < 0)
+        if (transform.position.y < -2)
         {
-            Player.cnt--;
+            player.Down();
             Destroy(gameObject);
         }
     }
