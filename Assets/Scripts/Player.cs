@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float MoveSpeed;
-    public GameObject Shell;
-    public float Force;
+    public float moveSpeed;
+    public GameObject shell;
+    public float force;
 
     public Text leaveNum;
-    public GameObject GameOver;
+    public GameObject gameOver;
 
-    public Transform FirePoint;
+    public Transform firePoint;
 
     public Vector3 min;
     public Vector3 max;
@@ -28,18 +29,21 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Jump"), Input.GetAxis("Vertical")) * MoveSpeed * Time.deltaTime);
+        transform.Translate(Time.deltaTime * moveSpeed * new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Jump"), Input.GetAxis("Vertical")));
         
         Camera.main.fieldOfView -= scroll * Time.deltaTime * Input.GetAxis("Mouse ScrollWheel");
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject newShell = Instantiate(Shell, FirePoint.position, FirePoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(FirePoint.forward * Force);
+            GameObject newShell = Instantiate(shell, firePoint.position, firePoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(firePoint.forward * force);
             Destroy(newShell, 3);
         }
-        Vector3 shouldposition = new Vector3(Mathf.Clamp(transform.position.x, min.x, max.x), Mathf.Clamp(transform.position.y, min.y, max.y), Mathf.Clamp(transform.position.z, min.z, max.z));
-        transform.position = shouldposition;
+
+        var position = transform.position;
+        var shouldposition = new Vector3(Mathf.Clamp(position.x, min.x, max.x), Mathf.Clamp(position.y, min.y, max.y), Mathf.Clamp(position.z, min.z, max.z));
+        position = shouldposition;
+        transform.position = position;
     }
 
     public void Down()
@@ -48,7 +52,7 @@ public class Player : MonoBehaviour
         if (cnt == 0)
         {
             leaveNum.gameObject.SetActive(false);
-            GameOver.SetActive(true);
+            gameOver.SetActive(true);
         }
         leaveNum.text = "剩余方块：" + cnt.ToString();
     }
