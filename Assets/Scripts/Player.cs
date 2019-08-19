@@ -44,6 +44,11 @@ public class Player : MonoBehaviour
         var shouldposition = new Vector3(Mathf.Clamp(position.x, min.x, max.x), Mathf.Clamp(position.y, min.y, max.y), Mathf.Clamp(position.z, min.z, max.z));
         position = shouldposition;
         transform.position = position;
+        
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void Down()
