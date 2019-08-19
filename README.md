@@ -41,6 +41,16 @@
 [完成的源码](https://github.com/Hukeqing/MyFirstUnityGame/tree/ec6d38e23f0319752a422f5be3f5dd270235270e)
 
 ### **9 游戏优化3**
-[B站视频](https://www.bilibili.com/video/av64043958/)
+[B站视频](https://www.bilibili.com/video/av64043958)
 
 [完成的源码](https://github.com/Hukeqing/MyFirstUnityGame/tree/cc18138c9f9f6d7bb7aa2f3054660ac81686b2b7)
+
+### **10 游戏优化4**
+[B站视频](https://www.bilibili.com/video/av64204585)
+
+[完成的源码](https://github.com/Hukeqing/MyFirstUnityGame/tree/307264576ffc0c6ac3ce74c4877b123909a7790a)
+
+### **11 完成游戏**
+[B站视频](https://www.bilibili.com/video/av64493113)
+
+[完成的源码](https://github.com/Hukeqing/MyFirstUnityGame/tree/f6236d25e8da1bb60e74727887cad16fa5df71af)
